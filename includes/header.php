@@ -19,7 +19,8 @@
 <!-- animate.css -->
 <link rel="stylesheet" href="assets/animate/animate.css" />
 <link rel="stylesheet" href="assets/animate/set.css" />
-
+<link rel="stylesheet" href="assets/etalage.css">
+<link rel="stylesheet" href="assets/bootstrap-clockpicker.css">
 <!-- gallery -->
 <link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
 
