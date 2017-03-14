@@ -31,17 +31,17 @@
     $category = explode('#',$category);
     $categoryid = $category[0];
     $categoryname = $category[1];
-    $image_url = $_POST['image_url'];
-
-    $target = "productpic/";
-    $target = $target . basename($_FILES['photo']['name']);
-    if ($_FILES['photo']['size'] == 0) {
-      unset($target);
-      $target = $image_url;
-    }else {
-      $tmpname = $_FILES['photo']['tmp_name'];
-      move_uploaded_file($tmpname, $target);
-    }
+    // $image_url = $_POST['image_url'];
+    //
+    // $target = "productpic/";
+    // $target = $target . basename($_FILES['photo']['name']);
+    // if ($_FILES['photo']['size'] == 0) {
+    //   unset($target);
+    //   $target = $image_url;
+    // }else {
+    //   $tmpname = $_FILES['photo']['tmp_name'];
+    //   move_uploaded_file($tmpname, $target);
+    // }
     $geocodeFromAddr = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.$plocation.'&sensor=false');
     $output = json_decode($geocodeFromAddr);
     //Get latitude and longitute from json data
@@ -53,8 +53,7 @@
     $subname = $row_get_subcat -> subcategory_name;
 
 
-    $sql_insert = "UPDATE `tbl_products` SET `category_id`= '$categoryid',`category_name`='$categoryname',
-    `subcategory_id`='$subcat',`subcategory_name`='$subname',`name`='$name',`desc`='$desc',`product_image`='$target',
+    $sql_insert = "UPDATE `tbl_products` SET `category_id`= '$categoryid',`category_name`='$categoryname',`name`='$name',`desc`='$desc',
     `hourly_price`='$hprice',`daily_price`='$dprice',`weekly_price`='$wprice',`monthly_price`='$mprice',
     `pickup_location`= '$pl',`latitude`='$latitudestart',`longitude`='$longitudestart',`total_quantity`= '$tquantity',
     `partner_id`='$partnerid',`partner_name`='$partner_name',`updated_on`= NOW() WHERE `id` = '$edit_id'";
@@ -95,13 +94,6 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="">Sub Category</label>
-            <label>Previously Selected Value: <?= $row -> subcategory_name ?></label>
-            <select class="form-control" name="subcat" id="subcat" required>
-
-            </select>
-          </div>
-          <div class="form-group">
             <label for="">Product Name</label>
             <input type="text" class="form-control" id="" name="name" value="<?= $row -> name ?>" placeholder="Enter product name" required>
           </div>
@@ -109,11 +101,11 @@
             <label for="">Product Desc</label>
             <textarea name="desc" rows="8" cols="80" class="form-control" placeholder="Enter the product Description" required><?= $row -> desc ?></textarea>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="">Product Image</label>
             <input type="file" class="form-control" name="photo" multiple>
             <img src="<?= $row -> product_image ?>" height="300" width="300" alt="">
-          </div>
+          </div> -->
           <div class="form-group col-md-3">
             <label for="">Hourly Price</label>
             <input type="number" class="form-control" name="hprice"  value="<?= $row -> hourly_price ?>" id="" placeholder=" Hourly Price " required>
@@ -138,7 +130,7 @@
             <label for="">Total Quantity</label>
             <input type="number" class="form-control" name="tquantity" value="<?= $row -> total_quantity ?>" id="" placeholder="Total Quantity" required>
           </div>
-          <input type="hidden" name="image_url" value="<?= $row -> product_image ?>">
+          <!-- <input type="hidden" name="image_url" value="<?= $row -> product_image ?>"> -->
           <input type="submit" name="submit" value="Edit Product" class="form-control btn btn-success">
         </form>
       </div>

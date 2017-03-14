@@ -13,16 +13,24 @@ if (isset($_GET['id'])) {
 		 <div class="grid images_3_of_2">
 		  <ul id="etalage">
 			<li>
-				<img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image?>" class="img-responsive" />
-				<img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image?>" class="img-responsive" title="" />
+				<img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image1?>" class="img-responsive" />
+				<img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image1?>" class="img-responsive" title="" />
 			</li>
 			<li>
-        <img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image?>" class="img-responsive" />
-        <img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image?>" class="img-responsive" title="" />
+        <img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image2?>" class="img-responsive" />
+        <img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image2?>" class="img-responsive" title="" />
 			</li>
 			<li>
-        <img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image?>" class="img-responsive" />
-        <img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image?>" class="img-responsive" title="" />
+        <img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image3?>" class="img-responsive" />
+        <img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image3?>" class="img-responsive" title="" />
+			</li>
+      <li>
+        <img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image4?>" class="img-responsive" />
+        <img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image4?>" class="img-responsive" title="" />
+			</li>
+      <li>
+        <img class="etalage_thumb_image" src="rrsprovider/<?= $row -> product_image5?>" class="img-responsive" />
+        <img class="etalage_source_image" src="rrsprovider/<?= $row -> product_image5?>" class="img-responsive" title="" />
 			</li>
 		</ul>
 		</div>

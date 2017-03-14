@@ -11,7 +11,7 @@
 			<div class="pricing-table-grid">
 				<div class="plans_head">
 					<h3 style="margin: .8em 0 1em 0"><?= $row -> name ?></h3>
-          <img src="rrsprovider/<?= $row -> product_image ?>" class="img-responsive" alt="">
+          <img src="rrsprovider/<?= $row -> product_image1 ?>" height="130" width="230" alt="">
 				</div>
 				<ul>
 					<li><a href="#">Hourly Price: <?= $row -> hourly_price?> Rs.</a></li>
