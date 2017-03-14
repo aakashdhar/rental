@@ -168,7 +168,7 @@ desired effect
             <li><a href="viewcategory.php">View category</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <!-- <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Sub Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -177,6 +177,17 @@ desired effect
           <ul class="treeview-menu">
             <li><a href="addsubcategory.php">Add subcategory</a></li>
             <li><a href="viewsubcategory.php">View subcategory</a></li>
+          </ul>
+        </li> -->
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Product</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="addproduct.php">Add Product</a></li>
+            <li><a href="viewproduct.php">View Product</a></li>
           </ul>
         </li>
         <li class="treeview">
