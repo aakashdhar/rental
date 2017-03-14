@@ -1,6 +1,6 @@
 <?php
   include 'core/init.php';
-  if (isset($_SESSION['username'])) {
+  if (isset($_SESSION['adminusername'])) {
     echo "<script>window.location.href = 'index.php'</script>";
   }
   if (isset($_POST['submit'])) {
@@ -11,7 +11,7 @@
     $row = mysqli_fetch_object($result);
 
     if (mysqli_num_rows($result) > 0 ) {
-      $_SESSION['username'] = $row -> username;
+      $_SESSION['adminusername'] = $row -> username;
       echo "<script>alert('Welcome to Rent Raja Admin Panel')</script>";
       echo "<script>window.location.href = 'index.php'</script>";
     }else{

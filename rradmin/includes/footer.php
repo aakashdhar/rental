@@ -25,6 +25,10 @@
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script src="plugins/fastclick/fastclick.js"></script>
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript"
+     src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBmBBDd9eIbjruPE9_2A-64kttSbj6amlc&libraries=places">
+ </script>
+ <script src="dist/js/jquery.placepicker.js" charset="utf-8"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script src="dist/js/alltables.js" charset="utf-8"></script>
@@ -32,5 +36,11 @@
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+     <script type="text/javascript">
+         $(document).ready(function()
+         {
+         	$(".placepicker").placepicker();
+         });
+       </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php include 'includes/header.php'; ?>
 <?php
+  $result_vol = mysqli_query($con,"SELECT * FROM `tbl_user`");
 
   $result_cat = mysqli_query($con,"SELECT * FROM `tbl_category`");
   $partnerid = $_SESSION['id'];
@@ -16,6 +17,7 @@
     $dprice = $_POST['dprice'];
     $wprice = $_POST['wprice'];
     $mprice = $_POST['mprice'];
+    $mobilenumber = $_POST['mobilenumber'];
     $tquantity = $_POST['tquantity'];
     $category = explode('#',$category);
     $categoryid = $category[0];
@@ -23,7 +25,7 @@
     // $filename  = basename($_FILES['file']['name']);
     // $extension = pathinfo($filename, PATHINFO_EXTENSION);
     // $new       = md5($filename).'.'.$extension;
-    $target = "productpic/";
+    $target = "../rrsprovider/productpic/";
     $f1 = basename($_FILES['photo']['name'][0]);
     $f2 = basename($_FILES['photo']['name'][1]);
     $f3 = basename($_FILES['photo']['name'][2]);
@@ -49,7 +51,15 @@
     copy($_FILES['photo']['tmp_name'][3], $img4);
     copy($_FILES['photo']['tmp_name'][4], $img5);
 
+    $img1 = str_replace("../rrsprovider/",'',$img1);
+    $img2 = str_replace("../rrsprovider/",'',$img2);
+    $img3 = str_replace("../rrsprovider/",'',$img3);
+    $img4 = str_replace("../rrsprovider/",'',$img4);
+    $img5 = str_replace("../rrsprovider/",'',$img5);
 
+    $result_name = mysqli_query($con,"SELECT * FROM `tbl_user` where `id` = '$mobilenumber'");
+    $row_name = mysqli_fetch_assoc($result_name);
+    $partner_name = $row_name['name'];
     $geocodeFromAddr = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.$plocation.'&sensor=false');
     $output = json_decode($geocodeFromAddr);
     //Get latitude and longitute from json data
@@ -60,7 +70,7 @@
       `desc`, `product_image1`, `product_image2`, `product_image3`, `product_image4`, `product_image5`, `hourly_price`, `daily_price`, `weekly_price`, `monthly_price`, `pickup_location`,
       `latitude`, `longitude`, `total_quantity`, `partner_id`, `partner_name`)
       VALUES ('$categoryid','$categoryname','$name','$desc','$img1','$img2','$img3','$img4','$img5','$hprice','$dprice','$wprice','$mprice',
-      '$pl','$latitudestart','$longitudestart','$tquantity','$partnerid','$partner_name')";
+      '$pl','$latitudestart','$longitudestart','$tquantity','$mobilenumber','$partner_name')";
 
     echo "$sql_insert";
     $result_insert = mysqli_query($con,$sql_insert);
@@ -92,6 +102,15 @@
       </div>
       <div class="panel-body">
         <form class="" action="" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="">Select Partner Mobile Number</label>
+            <select class="form-control select2" name="mobilenumber" style="width: 100%;">
+              <option>Select Partner Mobile Number</option>
+              <?php while($row = mysqli_fetch_object($result_vol)): ?>
+                <option value="<?= $row -> id ?>"><?= $row -> mobile ?></option>
+              <?php endwhile; ?>
+            </select>
+          </div>
           <div class="form-group">
             <label for="">Category</label>
             <select class="form-control" name="category" id="category" required>

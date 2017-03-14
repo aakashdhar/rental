@@ -1,6 +1,6 @@
 <?php include 'includes/header.php'; ?>
 <?php
-  if (!isset($_SESSION['username'])) {
+  if (!isset($_SESSION['adminusername'])) {
     echo "<script>window.location.href = 'login.php'</script>";
   }
 ?>
